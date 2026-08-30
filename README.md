@@ -37,9 +37,28 @@ In the stochastic model, environmental randomness is introduced through the Wien
 $$ dX = (\alpha x - \beta xy)dt + \sigma_x x dW_x $$
 $$ dY = (\delta xy - \gamma y)dt + \sigma_y y dW_y $$
 
-is made up of a deterministic drift term and a stochastic diffusion term, the randomness of which stems from dW, a Wiener process increment. The value of dW depends on a normal distribution with mean 0 and variance equal to the time increment (dt).
+is made up of a deterministic drift term and a stochastic diffusion term. The latter achieves randomness in dW, a Wiener process increment. The value of dW is determined randomly from a normal distribution with mean 0 and variance equal to the time increment (dt). Stochasticity is achieved during every single iteration of the Euler-Maruyama method because a new value of dW is computed each time. This gives every single simulation of the SDEs a unique array of solutions which translates to unpredictability and mimics actual environmental randomness.
 
 Since Brownian motion is continuous everywhere and differentiable nowhere, Euler-Maruyama method  with a random term correctly scaled to the square root of dt is used to solve this pair of SDEs
+
+# Monte Carlo Analysis
+Since every simulation of the stochastic model produces a unique sample from a distribution of outcomes, the model is run an arbitrary number of times via iterating through a for loop. Each iteration produces a unique plot, which is overlaid on top of every other plot on the same set of axes. The results reveal:
+- Population trajectories of both species (predator and prey) desynchronises over time, described as a "phase drift"
+- A widening uncertainty envelope as time progresses as a result of the phase drift
+- Extinction might occur when the noise multipliers (sigma) are given a large enough value - an uncertainty the deterministic model cannot produce
+However, it is important to observe that the trajectories of both populations are initially tightly synchronised, but then visibly drift out of phase over time causing the spread between runs to widen. With a deterministic model, the initial starting population already determines the future with absolute certainty
+
+# Example results
+Deterministic:
+<img width="1879" height="1125" alt="image" src="https://github.com/user-attachments/assets/5003c96a-95f4-4d51-befe-3087c9129c16" />
+
+Stochastic (Monte Carlo Simulation):
+<img width="1870" height="1098" alt="image" src="https://github.com/user-attachments/assets/b7bc068d-b68d-42f3-bcc5-9f4e154f298f" />
+
+# Reflection
+A glaring limitation of this project is that the parameters that govern the growth and encounter rates of both populations are arbitrarily defined, not fitted to real ecological data (such as those between foxes and rabbits, or between lynx and hares). Furthermore, SDEs can be solved with higher accuracy through more sophisticated methods such the Milstein Scheme. 
+
+It is also noteworthy that the noise terms of each population are independent of each other. This means that an environmental event affecting both populations (such as drought) are not accounted for. A natural extension of this project is to research into modelling the growth and encounter rate as periodic to take seasons or climate change into greater consideration - non-autonomous (time-dependent) parameters. A more ambitious perspective is to see if it is possible to extend the model to represent a multi-species systems to simulate food chain interactions.
 
 
 
