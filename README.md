@@ -9,17 +9,12 @@ You will need to install the Python modules NumPy and Matplotlib
 
 
 # Usage
-```bash
-# Deterministic model (RK4)
-python src/lv_deterministic.py
+'lv_deterministic.py' provides the deterministic model solved with 4th-order Runge-Kutta
+'lv_stochastic.py' provides the stochastic model with multiplicative noise, solved with Euler-Maruyama
+'lv_monte_carlo.py' includes a loop that iterates an arbitrary amount of times to ran a Monte Carlo simulation
 
-# Stochastic model (Euler-Maruyama)
-python src/lv_stochastic.py
+All Python files output a png image of the timeseries/phase plot after the model has been simulated
 
-# Monte Carlo simulations
-python src/lv_monte_carlo.py
-```
-Each script saves its output plots to the repository root as .png files.
 
 # Overview
 The Lotka-Volterra is among the oldest system of equations that exist to model the population dynamics between a predator and a prey. It is a pair of coupled, non-linear ordinary differential equations that must be solved numerically in lieu of a general analytical solution. This project aims to:
