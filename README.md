@@ -4,7 +4,9 @@ This is a numerical simulation of the Lotka-Volterra predator-prey model in Pyth
 
 <img width="1904" height="1133" alt="image" src="https://github.com/user-attachments/assets/e15fa9e2-4bf7-4663-9f7b-b8cfd24b9f62" />
 
-# Installtion
+# Installation
+You will need to install the Python modules NumPy and Matplotlib 
+
 
 # Usage
 ```bash
@@ -14,7 +16,7 @@ python src/lv_deterministic.py
 # Stochastic model (Euler-Maruyama)
 python src/lv_stochastic.py
 
-# Monte Carlo simulation (multiple realisations)
+# Monte Carlo simulations
 python src/lv_monte_carlo.py
 ```
 Each script saves its output plots to the repository root as .png files.
