@@ -34,8 +34,8 @@ The biological realism is improved with the incorporation of carrying capacity t
 
 In the stochastic model, environmental randomness is introduced through the Wiener system, a mathematical representation of Brownian Motion. The pair of coupled stochastic differential equations (SDEs):
 
-$$ dX = (\alpha x - \beta xy)dt + \sigma_x x dW_x $$
-$$ dY = (\delta xy - \gamma y)dt + \sigma_y y dW_y $$
+$$ dX = f(x,y)dt + \sigma_x x dW_x $$
+$$ dY = g(x,y)dt + \sigma_y y dW_y $$
 
 is made up of a deterministic drift term and a stochastic diffusion term. The latter achieves randomness in dW, a Wiener process increment. The value of dW is determined randomly from a normal distribution with mean 0 and variance equal to the time increment (dt). Stochasticity is achieved during every single iteration of the Euler-Maruyama method because a new value of dW is computed each time. This gives every single simulation of the SDEs a unique array of solutions which translates to unpredictability and mimics actual environmental randomness.
 
